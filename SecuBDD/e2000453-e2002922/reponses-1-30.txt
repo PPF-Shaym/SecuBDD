@@ -1,0 +1,208 @@
+1 / connectez vous à votre gestionnaire de base de données mysql
+2 / créer la base TP_SecuBDD_NomBinome1_NomBinome2
+3 / lister les bases présentes
+4 / créer un utilisateur de votre nom qui peut se connecter seulement à la base créée précédemment depuis localhost avec tous les privilèges
+5 / donner tous les droits à cet utilisateur sur tous les objets
+6 / afficher les privilèges de l'utilisateur connecté
+7 / afficher tous les utilisateurs du système selon le modèle suivant
++-----------+------------------+-------------------------------------------+
+| host      | user             | password                                  |
++-----------+------------------+-------------------------------------------+
+| localhost | root             | *E74858DB86EBA20BC33D0AECAE8A8108C56B17FA |
+| zbook     | root             | *E74858DB86EBA20BC33D0AECAE8A8108C56B17FA |
+| 127.0.0.1 | root             | *E74858DB86EBA20BC33D0AECAE8A8108C56B17FA |
+| ::1       | root             | *E74858DB86EBA20BC33D0AECAE8A8108C56B17FA |
+| localhost | debian-sys-maint | *EEC1B0AA64F578D7FD4218C388C8A8C271D0E402 |
+| localhost | phpmyadmin       | *E74858DB86EBA20BC33D0AECAE8A8108C56B17FA |
++-----------+------------------+-------------------------------------------+
+6 rows in set (0.00 sec)
+
+8 / afficher la structure de la table des utilisateurs dans mySQL
+9 / afficher la liste des tables dans le format suivant
++---------------------------+
+| Tables_in_mysql           |
++---------------------------+
+| columns_priv              |
+| db                        |
+| event                     |
+| func                      |
+| general_log               |
+| help_category             |
+| help_keyword              |
+| help_relation             |
+| help_topic                |
+| host                      |
+| ndb_binlog_index          |
+| plugin                    |
+| proc                      |
+| procs_priv                |
+| proxies_priv              |
+| servers                   |
+| slow_log                  |
+| tables_priv               |
+| time_zone                 |
+| time_zone_leap_second     |
+| time_zone_name            |
+| time_zone_transition      |
+| time_zone_transition_type |
+| user                      |
++---------------------------+
+24 rows in set (0.00 sec)
+
+10 / IGNOREZ CETTE QUESTION
+
+Afficher la structure de la table des utilisateurs dans le format suivant
+
++------------------------+-----------------------------------+------+-----+---------+-------+
+| Field                  | Type                              | Null | Key | Default | Extra |
++------------------------+-----------------------------------+------+-----+---------+-------+
+| Host                   | char(60)                          | NO   | PRI |         |       |
+| User                   | char(16)                          | NO   | PRI |         |       |
+| Password               | char(41)                          | NO   |     |         |       |
+| Select_priv            | enum('N','Y')                     | NO   |     | N       |       |
+| Insert_priv            | enum('N','Y')                     | NO   |     | N       |       |
+| Update_priv            | enum('N','Y')                     | NO   |     | N       |       |
+| Delete_priv            | enum('N','Y')                     | NO   |     | N       |       |
+| Create_priv            | enum('N','Y')                     | NO   |     | N       |       |
+| Drop_priv              | enum('N','Y')                     | NO   |     | N       |       |
+| Reload_priv            | enum('N','Y')                     | NO   |     | N       |       |
+| Shutdown_priv          | enum('N','Y')                     | NO   |     | N       |       |
+| Process_priv           | enum('N','Y')                     | NO   |     | N       |       |
+| File_priv              | enum('N','Y')                     | NO   |     | N       |       |
+| Grant_priv             | enum('N','Y')                     | NO   |     | N       |       |
+| References_priv        | enum('N','Y')                     | NO   |     | N       |       |
+| Index_priv             | enum('N','Y')                     | NO   |     | N       |       |
+| Alter_priv             | enum('N','Y')                     | NO   |     | N       |       |
+| Show_db_priv           | enum('N','Y')                     | NO   |     | N       |       |
+| Super_priv             | enum('N','Y')                     | NO   |     | N       |       |
+| Create_tmp_table_priv  | enum('N','Y')                     | NO   |     | N       |       |
+| Lock_tables_priv       | enum('N','Y')                     | NO   |     | N       |       |
+| Execute_priv           | enum('N','Y')                     | NO   |     | N       |       |
+| Repl_slave_priv        | enum('N','Y')                     | NO   |     | N       |       |
+| Repl_client_priv       | enum('N','Y')                     | NO   |     | N       |       |
+| Create_view_priv       | enum('N','Y')                     | NO   |     | N       |       |
+| Show_view_priv         | enum('N','Y')                     | NO   |     | N       |       |
+| Create_routine_priv    | enum('N','Y')                     | NO   |     | N       |       |
+| Alter_routine_priv     | enum('N','Y')                     | NO   |     | N       |       |
+| Create_user_priv       | enum('N','Y')                     | NO   |     | N       |       |
+| Event_priv             | enum('N','Y')                     | NO   |     | N       |       |
+| Trigger_priv           | enum('N','Y')                     | NO   |     | N       |       |
+| Create_tablespace_priv | enum('N','Y')                     | NO   |     | N       |       |
+| ssl_type               | enum('','ANY','X509','SPECIFIED') | NO   |     |         |       |
+| ssl_cipher             | blob                              | NO   |     | NULL    |       |
+| x509_issuer            | blob                              | NO   |     | NULL    |       |
+| x509_subject           | blob                              | NO   |     | NULL    |       |
+| max_questions          | int(11) unsigned                  | NO   |     | 0       |       |
+| max_updates            | int(11) unsigned                  | NO   |     | 0       |       |
+| max_connections        | int(11) unsigned                  | NO   |     | 0       |       |
+| max_user_connections   | int(11) unsigned                  | NO   |     | 0       |       |
+| plugin                 | char(64)                          | YES  |     |         |       |
+| authentication_string  | text                              | YES  |     | NULL    |       |
++------------------------+-----------------------------------+------+-----+---------+-------+
+42 rows in set (0.00 sec)
+
+11 / afficher la version et l'heure du SGBDR
+12 / créer la table des fournisseurs dans le modèle suivant
+CREATE TABLE fournisseurs ( code INT, nom CHAR ) ;
+ALTER TABLE fournisseurs ADD prenom CHAR, ADD ref INT;
+DROP TABLE fournisseurs ;
+
+13 / afficher le résutat de sin(PI/4) et de (4+1)*6 sur une même ligne
+14 / créer la table shop et y insérer les donnés suivantes :
+
+CREATE TABLE shop (
+article INT(4) UNSIGNED ZEROFILL DEFAULT '0000' NOT NULL,
+dealer CHAR(20) DEFAULT '' NOT NULL,
+price DOUBLE(16,2) DEFAULT '0.00' NOT NULL,
+PRIMARY KEY(article, dealer));
+
+INSERT INTO shop VALUES
+(1,'A',3.45),(1,'B',3.99),(2,'A',10.99),(3,'B',1.45),(3,'C',1.69),
+(3,'D',1.25),(4,'D',19.95);
+
+15 / Quel est le résultat de la commande suivante : select arTIcle from SHoP;
+16 / créer un utilisateur "customer" qui n'a que les droits de lecture sur la table shop. Quel est les message d'errreur d'une tentative d'insertion par cet utilisateur ?
+
+17 / résultat des commandes suivantes :
+
+SELECT MAX(article) AS article FROM shop;
+SELECT article, dealer, price FROM shop WHERE price=(SELECT MAX(price) FROM shop);
+SELECT article, MAX(price) AS price FROM shop GROUP BY article;
+SELECT article, dealer, price FROM shop s1 WHERE price=(SELECT MAX(s2.price) FROM shop s2 WHERE s1.article = s2.article);
+
+18 / créer les objets suivants et noter le code retour:
+
+CREATE TABLE persons (
+ id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+ name CHAR(60) NOT NULL,
+ PRIMARY KEY (id)
+ );
+
+CREATE TABLE shirts (
+ id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+ style ENUM('t-shirt', 'polo', 'dress') NOT NULL,
+ color ENUM('red', 'blue', 'orange', 'white', 'black') NOT NULL,
+ owner SMALLINT UNSIGNED NOT NULL REFERENCES persons,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO persons VALUES (NULL, 'Antonio Paz');
+
+INSERT INTO shirts VALUES
+ (NULL, 'polo', 'blue', LAST_INSERT_ID()),
+ (NULL, 'dress', 'white', LAST_INSERT_ID()),
+ (NULL, 't-shirt', 'blue', LAST_INSERT_ID());
+
+
+INSERT INTO persons VALUES (NULL, 'Lilliana Angelovska');
+INSERT INTO persons VALUES (1, 'Laurent Marot');
+
+INSERT INTO shirts VALUES
+ (NULL, 'dress', 'orange', LAST_INSERT_ID()),
+ (NULL, 'polo', 'red', LAST_INSERT_ID()),
+ (NULL, 'dress', 'blue', LAST_INSERT_ID()),
+ (NULL, 't-shirt', 'white', LAST_INSERT_ID());
+
+SELECT s.* FROM persons p, shirts s
+WHERE p.name LIKE 'Lilliana%'
+AND s.owner = p.id
+AND s.color <> 'white';
+
+CREATE TABLE animaux (nom VARCHAR(20), proprietaire VARCHAR(20), espece VARCHAR(20), genre CHAR(1), naissance DATE, mort DATE);
+
+19 / Comment insérer facilement un fichier texte avec le contenu suivant (ajoutez deux mois à la date de naissance pour chaque ligne):
+
+Fluffy	Harold	chat	f 	'2013-02-04'	\N
+Claws	Gwen 	chat 	m 	'2014-03-17'	\N
+Buffy	Haro	d chien	f 	'2019-05-13'	\N
+Fang	Benny	chien 	m 	'2010-08-27'	\N
+Bowser	Diane	chien	m 	'2018-08-31'	'2021-07-29'
+Chirpy	Gwen	oiseau	f 	'2018-09-11'	\N
+Whistler 	Gwen	oiseau	\N	'2017-12-09	\N
+Slim	Benny	serpent	m 	'2016-04-29	\N
+Puffball	Diane	hamster	f	'2019-03-30	\N
+
+
+20 / afficher l'âge des animaux
+21 / Expliquer le résultat de cette commande : SELECT 1 IS NULL, 1 IS NOT NULL;
+22 / afficher le nom des animaux dont le nom contient un b ou un P avec une expression régulière
+23 / modifier le mot de passe de votre utilisateur créé au début avec la valeur "mysql"
+24 / donnez une requête sur la table animaux affichant les tuples en version hachées (SHA2)
+25 / quelle est la fonction de base pour sécuriser mysql au déploiement initial ?
+26 / comment feriez-vous pour chiffrer une cellule sensible d'une de vos tables de base de données ?
+27 / par quels mécanismes assureriez-vous la disponibilité sur une base mysql ?
+28 / quelle est la syntaxe java pour rendre insensible à l'injection SQL un select sur une table de SGBD ?
+29 / quel est le mécanisme de hash de mot de passe dans Joomla et dans Wordpress ?
+30 / Faire un dump de votre base de test
+31 / définissez une nouvelle base mysql avec une table dont une colonne contenant des entiers est chiffrée à l'aide d'un algorithme préservant la relation d'ordre — aka. Order Revealing Encryption — (afin que les requêtes sur intervalles soient permises), puis donnez l'implémentation (en python, c, ou java) du middleware et d'une application cliente de cette base illustrant la récupération et le déchiffrement des informations de la base ainsi que le bon fonctionnement de la relation d'ordre.
+
+Focalisez-vous sur la preuve de fonctionnement, on n'attend pas ici un produit fini avec parseur de requête, une application cliente effectuant une requête sur intervalle, vérifiant la réponse, et terminant, est suffisant.
+
+31 bis/ on souhaite effectuer une opération à distance sur des données qui nous appartiennent, sans pour autant révéler à la machine distante le contenu de ces données. Implémentez un middleware côté serveur, capable d'effectuer une somme sur des données chiffrées par un client (le client est en mesure de déchiffrer cette somme).
+Combinez les deux middlewares afin que :
+- il soit possible de comparer des entiers chiffrées (cf. relation d'ordre)
+- il soit possible d'additionner des entiers chiffrées
+
+32 / (facultatif) implémentez une attaque statistique permettant à un utilisateur illégitime d'approximer l'information chiffrée.
+
+Lien utile : https://blog.cryptographyengineering.com/2019/02/11/attack-of-the-week-searchable-encryption-and-the-ever-expanding-leakage-function/
